@@ -1,0 +1,165 @@
+{
+  "id": "7b0c46c6-0589-4ff3-a685-adb17192111f",
+  "fusionName": "Masahiro the Bell Monk",
+  "dateRange": {
+    "start": "2026-05-07",
+    "end": "2026-05-20"
+  },
+  "requiredFragments": 100,
+  "totalFragments": 135,
+  "events": [
+    {
+      "id": "1988f9ab-8c23-4238-b3bd-7e84b725f51b",
+      "name": "Spider Tournament",
+      "type": "Tournament",
+      "startDate": "2026-05-07",
+      "endDate": "2026-05-10",
+      "fragments": 5,
+      "status": "pending",
+      "needsReview": false
+    },
+    {
+      "id": "762c0476-9185-41f5-bab5-ca795256e7ba",
+      "name": "Champion Training Tournament",
+      "type": "Tournament",
+      "startDate": "2026-05-07",
+      "endDate": "2026-05-11",
+      "fragments": 20,
+      "status": "pending",
+      "needsReview": false
+    },
+    {
+      "id": "3dda1c55-8639-495c-aa42-a793ea6f4fd5",
+      "name": "Gear Hunters Event I",
+      "type": "Event",
+      "startDate": "2026-05-07",
+      "endDate": "2026-05-10",
+      "fragments": 5,
+      "status": "pending",
+      "needsReview": false
+    },
+    {
+      "id": "12163720-8e7a-457b-9ba1-92193ee9e076",
+      "name": "Summon Rush",
+      "type": "Event",
+      "startDate": "2026-05-08",
+      "endDate": "2026-05-11",
+      "fragments": 20,
+      "status": "pending",
+      "needsReview": false
+    },
+    {
+      "id": "0be3af87-b7c5-4805-8204-6b1e62c77fd4",
+      "name": "Gear Enhancement Event I",
+      "type": "Event",
+      "startDate": "2026-05-08",
+      "endDate": "2026-05-11",
+      "fragments": 5,
+      "status": "pending",
+      "needsReview": false
+    },
+    {
+      "id": "b71a8ecd-7a4f-4b30-843a-897f5d70a2ea",
+      "name": "Classic Arena Takedown I",
+      "type": "Tournament",
+      "startDate": "2026-05-09",
+      "endDate": "2026-05-12",
+      "fragments": 5,
+      "status": "pending",
+      "needsReview": false
+    },
+    {
+      "id": "700a3f11-b370-4337-9b66-6f6f6c31fc6a",
+      "name": "Fire Knight Tournament",
+      "type": "Tournament",
+      "startDate": "2026-05-10",
+      "endDate": "2026-05-13",
+      "fragments": 5,
+      "status": "pending",
+      "needsReview": false
+    },
+    {
+      "id": "48db396e-0c70-4ee5-996b-653b5799c46d",
+      "name": "Gear Enhancement Event II",
+      "type": "Event",
+      "startDate": "2026-05-12",
+      "endDate": "2026-05-15",
+      "fragments": 5,
+      "status": "pending",
+      "needsReview": false
+    },
+    {
+      "id": "50e36099-455f-4b58-84b4-6cf41e4b4c2c",
+      "name": "Ice Golem Tournament",
+      "type": "Tournament",
+      "startDate": "2026-05-14",
+      "endDate": "2026-05-17",
+      "fragments": 5,
+      "status": "pending",
+      "needsReview": false
+    },
+    {
+      "id": "71e288ff-22eb-493c-bc09-473c4962ddc6",
+      "name": "Champion Training Event",
+      "type": "Event",
+      "startDate": "2026-05-14",
+      "endDate": "2026-05-18",
+      "fragments": 15,
+      "status": "pending",
+      "needsReview": false
+    },
+    {
+      "id": "d5594f91-79d0-487b-a43b-21945e209e6a",
+      "name": "Champion Chase Tournament",
+      "type": "Tournament",
+      "startDate": "2026-05-15",
+      "endDate": "2026-05-18",
+      "fragments": 25,
+      "status": "pending",
+      "needsReview": false
+    },
+    {
+      "id": "6f211145-e5ed-41fb-af37-fcbbf788356e",
+      "name": "Classic Arena Takedown II",
+      "type": "Tournament",
+      "startDate": "2026-05-16",
+      "endDate": "2026-05-19",
+      "fragments": 5,
+      "status": "pending",
+      "needsReview": false
+    },
+    {
+      "id": "a9cda8d1-f369-4673-9bd7-a15cb490883f",
+      "name": "Gear Hunters Event II",
+      "type": "Event",
+      "startDate": "2026-05-16",
+      "endDate": "2026-05-19",
+      "fragments": 5,
+      "status": "pending",
+      "needsReview": false
+    },
+    {
+      "id": "843f2755-7f10-422b-b6b4-ef6b5f60dbd0",
+      "name": "Gear Enhancement Event III",
+      "type": "Event",
+      "startDate": "2026-05-16",
+      "endDate": "2026-05-19",
+      "fragments": 5,
+      "status": "pending",
+      "needsReview": false
+    },
+    {
+      "id": "4ef4e495-5b17-4f9d-a63a-71e80434c5dd",
+      "name": "Dragon Tournament",
+      "type": "Tournament",
+      "startDate": "2026-05-17",
+      "endDate": "2026-05-20",
+      "fragments": 5,
+      "status": "pending",
+      "needsReview": false
+    }
+  ],
+  "createdAt": "2026-06-05T00:00:00.000Z",
+  "updatedAt": "2026-06-05T00:00:00.000Z",
+  "source": "ai"
+}
