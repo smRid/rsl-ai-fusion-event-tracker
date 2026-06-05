@@ -47,11 +47,11 @@ Create `.env` and set your Ollama configuration:
 
 ```bash
 OLLAMA_API_KEY=your_ollama_api_key_here
-OLLAMA_MODEL=qwen2.5vl:7b
+OLLAMA_MODEL=qwen3-vl:235b-cloud
 OLLAMA_BASE_URL=https://ollama.com
 ```
 
-For local Ollama, set `OLLAMA_BASE_URL=http://localhost:11434` and omit `OLLAMA_API_KEY` if your local server does not require authentication. Do not use `NEXT_PUBLIC_` for any API key. The app only calls Ollama from the secure Next.js API route.
+For Ollama Cloud, `OLLAMA_API_KEY` is required and `OLLAMA_BASE_URL` should be `https://ollama.com`. For local Ollama, set `OLLAMA_BASE_URL=http://localhost:11434` and omit `OLLAMA_API_KEY` only if your local server does not require authentication. Do not use `NEXT_PUBLIC_` for any API key. The app only calls Ollama from the secure Next.js API route.
 
 ## Run Locally
 

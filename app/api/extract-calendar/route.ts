@@ -4,12 +4,16 @@ import { extractCalendarJsonFromImage, OllamaApiError } from "@/lib/ollama";
 import { normalizeExtractedFusion } from "@/lib/fusion-schema";
 
 const MAX_IMAGE_SIZE = 20 * 1024 * 1024;
-const DEFAULT_OLLAMA_MODEL = "qwen2.5vl:7b";
+const DEFAULT_OLLAMA_MODEL = "qwen3-vl:235b-cloud";
 
 export async function POST(request: Request) {
   const apiKey = process.env.OLLAMA_API_KEY;
   const model = process.env.OLLAMA_MODEL || process.env.Model || DEFAULT_OLLAMA_MODEL;
   const baseUrl = process.env.OLLAMA_BASE_URL || "https://ollama.com";
+
+  if (!apiKey) {
+    return jsonError("OLLAMA_API_KEY is missing on the server.", 500);
+  }
 
   let image: FormDataEntryValue | null = null;
   try {
@@ -91,7 +95,7 @@ function toOllamaErrorMessage(message: string): string {
   }
 
   if (lowerMessage.includes("model") || lowerMessage.includes("not found")) {
-    return "Ollama model access failed for qwen2.5vl:7b. Make sure the model exists and supports image input.";
+    return "Ollama model access failed for qwen3-vl:235b-cloud. Make sure your API key has access to this cloud vision model.";
   }
 
   if (lowerMessage.includes("fetch") || lowerMessage.includes("network") || lowerMessage.includes("econnrefused")) {
