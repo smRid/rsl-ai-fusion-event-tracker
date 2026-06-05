@@ -20,6 +20,7 @@ export function ManualEventForm({
     startDate: null,
     endDate: null,
     fragments: null,
+    gridPosition: 1,
     status: "pending",
     needsReview: false
   });
@@ -43,6 +44,7 @@ export function ManualEventForm({
       startDate: null,
       endDate: null,
       fragments: null,
+      gridPosition: 1,
       status: "pending",
       needsReview: false
     });

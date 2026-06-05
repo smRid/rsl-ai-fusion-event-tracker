@@ -9,6 +9,7 @@ export interface FusionEvent {
   startDate: string | null;
   endDate: string | null;
   fragments: number | null;
+  gridPosition: number;
   status: FusionEventStatus;
   needsReview: boolean;
   notes?: string;

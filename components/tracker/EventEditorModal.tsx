@@ -160,6 +160,21 @@ export function EventFields({
           className="mt-1 w-full rounded border border-slate-700 bg-slate-950 px-3 py-2 text-sm outline-none focus:border-cyan-400"
         />
       </label>
+      <label>
+        <span className="text-sm font-bold text-slate-200">Grid Position</span>
+        <input
+          type="number"
+          min="1"
+          value={draft.gridPosition}
+          onChange={(event) =>
+            onChange({
+              ...draft,
+              gridPosition: event.target.value === "" ? 1 : Math.max(1, Number(event.target.value))
+            })
+          }
+          className="mt-1 w-full rounded border border-slate-700 bg-slate-950 px-3 py-2 text-sm outline-none focus:border-cyan-400"
+        />
+      </label>
       <label className="flex items-end gap-3 rounded border border-slate-700 bg-slate-950 p-3">
         <input
           type="checkbox"
@@ -188,6 +203,9 @@ export function validateEvent(event: FusionEvent): string | null {
   }
   if (event.fragments !== null && (!Number.isFinite(event.fragments) || event.fragments < 0)) {
     return "Fragments must be a number greater than or equal to 0.";
+  }
+  if (!Number.isFinite(event.gridPosition) || event.gridPosition < 1) {
+    return "Grid position must be a number greater than or equal to 1.";
   }
   if (event.startDate && !parseDateSafe(event.startDate)) {
     return "Start date must use YYYY-MM-DD format.";

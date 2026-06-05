@@ -91,7 +91,7 @@ export function normalizeTracker(raw: unknown): FusionTracker {
 
   const now = new Date().toISOString();
   const rawEvents = Array.isArray(raw.events) ? raw.events : [];
-  const events = rawEvents.map(normalizeEvent);
+  const events = assignMissingGridPositions(rawEvents.map(normalizeEvent));
   const explicitTotal = toNonNegativeNumber(raw.totalFragments);
 
   return {
@@ -122,10 +122,29 @@ function normalizeEvent(raw: unknown): FusionEvent {
     startDate: normalizeIsoDate(raw.startDate),
     endDate: normalizeIsoDate(raw.endDate),
     fragments: toNonNegativeNumber(raw.fragments),
+    gridPosition: toPositiveNumber(raw.gridPosition),
     status: normalizeStatus(raw.status),
     needsReview: Boolean(raw.needsReview) || !normalizeIsoDate(raw.startDate) || !normalizeIsoDate(raw.endDate),
     notes: typeof raw.notes === "string" ? raw.notes : undefined
   };
+}
+
+function assignMissingGridPositions(events: FusionEvent[]): FusionEvent[] {
+  const nextByType: Record<FusionEventType, number> = {
+    Tournament: 1,
+    Event: 1
+  };
+
+  return sortEventsByDate(events).map((event) => {
+    if (event.gridPosition > 0) {
+      nextByType[event.type] = Math.max(nextByType[event.type], event.gridPosition + 1);
+      return event;
+    }
+
+    const gridPosition = nextByType[event.type];
+    nextByType[event.type] += 1;
+    return { ...event, gridPosition };
+  });
 }
 
 function normalizeDateRange(raw: unknown): FusionTracker["dateRange"] {
@@ -170,6 +189,14 @@ function toNonNegativeNumber(raw: unknown): number | null {
   }
 
   return Math.max(0, Math.round(raw));
+}
+
+function toPositiveNumber(raw: unknown): number {
+  if (typeof raw !== "number" || !Number.isFinite(raw)) {
+    return 0;
+  }
+
+  return Math.max(1, Math.round(raw));
 }
 
 function sumByStatus(events: FusionEvent[], status: FusionEventStatus): number {

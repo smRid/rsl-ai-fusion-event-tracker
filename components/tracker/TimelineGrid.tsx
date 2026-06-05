@@ -126,7 +126,8 @@ function TimelineLane({
   dayWidthCss: string;
   onSelectEvent: (event: FusionEvent) => void;
 }) {
-  const height = Math.max(100, events.length * ROW_HEIGHT + 50);
+  const maxPosition = events.reduce((max, event) => Math.max(max, event.gridPosition), 0);
+  const height = Math.max(100, Math.max(events.length, maxPosition) * ROW_HEIGHT + 50);
 
   return (
     <div className="relative border-b border-slate-700" style={{ height }}>
@@ -144,7 +145,7 @@ function TimelineLane({
           event={event}
           rangeStart={rangeStart}
           dayWidthCss={dayWidthCss}
-          top={40 + index * ROW_HEIGHT}
+          top={40 + ((event.gridPosition || index + 1) - 1) * ROW_HEIGHT}
           onClick={() => onSelectEvent(event)}
         />
       ))}
