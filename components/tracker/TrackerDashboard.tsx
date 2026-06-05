@@ -9,6 +9,7 @@ import { TimelineGrid } from "./TimelineGrid";
 import { EventEditorModal } from "./EventEditorModal";
 import { ManualEventForm } from "./ManualEventForm";
 import { ImportExportPanel } from "./ImportExportPanel";
+import { CalendarDetailsPanel } from "./CalendarDetailsPanel";
 
 export function TrackerDashboard({
   tracker,
@@ -32,6 +33,10 @@ export function TrackerDashboard({
         updatedAt: new Date().toISOString()
       })
     );
+  }
+
+  function updateTrackerDetails(patch: Partial<FusionTracker>) {
+    updateTracker(sortedTracker.events, patch);
   }
 
   function handleSaveEvent(event: FusionEvent) {
@@ -86,6 +91,7 @@ export function TrackerDashboard({
 
         <div className="grid gap-5 xl:grid-cols-[minmax(0,1fr)_340px]">
           <section className="min-w-0 space-y-5">
+            <CalendarDetailsPanel tracker={sortedTracker} onSave={updateTrackerDetails} />
             <TimelineGrid tracker={sortedTracker} onSelectEvent={setEditingEvent} />
             <ManualEventForm
               open={isAdding}
