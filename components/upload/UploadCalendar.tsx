@@ -208,7 +208,7 @@ export function UploadCalendar() {
           <aside className="rounded border border-slate-700 bg-slate-900/85 p-5">
             <h2 className="text-xl font-bold text-yellow-300">Generate Timeline</h2>
             <p className="mt-2 text-sm text-slate-300">
-              The Gemini API key stays server-side. Your tracker data is saved only in this browser.
+              The Ollama API key stays server-side. Your tracker data is saved only in this browser.
             </p>
 
             {selectedFile ? (
