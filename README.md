@@ -1,4 +1,4 @@
-# AI Fusion Tracker for Raid: Shadow Legends
+# Fusion Tracker for Raid: Shadow Legends
 
 Production-quality MVP web app for generating an interactive Raid: Shadow Legends fusion tracker from an uploaded official fusion calendar image.
 

@@ -6,7 +6,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://rsl-ai-fusion-track
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  name: "RSL AI Fusion Tracker",
+  name: "RSL Fusion Tracker",
   applicationCategory: "GameApplication",
   operatingSystem: "Any",
   url: siteUrl,
@@ -21,10 +21,10 @@ const structuredData = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  applicationName: "RSL AI Fusion Tracker",
+  applicationName: "RSL Fusion Tracker",
   title: {
-    default: "RSL AI Fusion Tracker | Raid: Shadow Legends Fusion Calendar Tool",
-    template: "%s | RSL AI Fusion Tracker"
+    default: "RSL Fusion Tracker | Raid: Shadow Legends Fusion Calendar Tool",
+    template: "%s | RSL Fusion Tracker"
   },
   description:
     "Track Raid: Shadow Legends fusion events, tournaments, fragments, leaderboard rewards, and earned progress with an AI-powered fusion calendar timeline.",
@@ -38,9 +38,9 @@ export const metadata: Metadata = {
     "Raid tournament tracker",
     "Raid event tracker"
   ],
-  authors: [{ name: "RSL AI Fusion Tracker" }],
-  creator: "RSL AI Fusion Tracker",
-  publisher: "RSL AI Fusion Tracker",
+  authors: [{ name: "RSL Fusion Tracker" }],
+  creator: "RSL Fusion Tracker",
+  publisher: "RSL Fusion Tracker",
   category: "gaming",
   alternates: {
     canonical: "/"
@@ -48,8 +48,8 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "/",
-    siteName: "RSL AI Fusion Tracker",
-    title: "RSL AI Fusion Tracker",
+    siteName: "RSL Fusion Tracker",
+    title: "RSL Fusion Tracker",
     description:
       "AI-powered Raid: Shadow Legends fusion calendar tracker for events, tournaments, fragments, and leaderboard rewards.",
     images: [
@@ -57,13 +57,13 @@ export const metadata: Metadata = {
         url: "/Folan Silverhart.webp",
         width: 1200,
         height: 630,
-        alt: "RSL AI Fusion Tracker"
+        alt: "RSL Fusion Tracker"
       }
     ]
   },
   twitter: {
     card: "summary_large_image",
-    title: "RSL AI Fusion Tracker",
+    title: "RSL Fusion Tracker",
     description:
       "Track Raid: Shadow Legends fusion calendars, fragments, events, tournaments, and leaderboard rewards.",
     images: ["/Folan Silverhart.webp"]

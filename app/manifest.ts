@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "RSL AI Fusion Tracker",
+    name: "RSL Fusion Tracker",
     short_name: "RSL Fusion",
     description:
       "AI-powered Raid: Shadow Legends fusion calendar tracker for events, tournaments, fragments, and leaderboard rewards.",
