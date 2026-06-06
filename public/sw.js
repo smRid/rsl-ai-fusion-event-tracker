@@ -1,5 +1,5 @@
-const CACHE_NAME = "rsl-fusion-tracker-v1";
-const APP_SHELL = ["/", "/tracker", "/icon.svg", "/manifest.webmanifest"];
+const CACHE_NAME = "rsl-fusion-tracker-v2";
+const APP_SHELL = ["/", "/tracker", "/logo.png", "/manifest.webmanifest"];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(APP_SHELL)));

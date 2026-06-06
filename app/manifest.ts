@@ -15,15 +15,15 @@ export default function manifest(): MetadataRoute.Manifest {
     categories: ["games", "productivity", "utilities"],
     icons: [
       {
-        src: "/icon.svg",
-        sizes: "any",
-        type: "image/svg+xml",
+        src: "/logo.png",
+        sizes: "612x408",
+        type: "image/png",
         purpose: "any"
       },
       {
-        src: "/icon.svg",
-        sizes: "any",
-        type: "image/svg+xml",
+        src: "/logo.png",
+        sizes: "612x408",
+        type: "image/png",
         purpose: "maskable"
       }
     ],
@@ -33,14 +33,14 @@ export default function manifest(): MetadataRoute.Manifest {
         short_name: "Tracker",
         description: "Open your saved fusion tracker.",
         url: "/tracker",
-        icons: [{ src: "/icon.svg", sizes: "any", type: "image/svg+xml" }]
+        icons: [{ src: "/logo.png", sizes: "612x408", type: "image/png" }]
       },
       {
         name: "Admin",
         short_name: "Admin",
         description: "Open the protected admin editor.",
         url: "/admin",
-        icons: [{ src: "/icon.svg", sizes: "any", type: "image/svg+xml" }]
+        icons: [{ src: "/logo.png", sizes: "612x408", type: "image/png" }]
       }
     ]
   };

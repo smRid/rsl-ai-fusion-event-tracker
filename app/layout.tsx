@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   applicationName: "RSL Fusion Tracker",
   title: {
-    default: "RSL Fusion Tracker | Raid: Shadow Legends Fusion Calendar Tool",
+    default: "RSL Fusion Tracker",
     template: "%s | RSL Fusion Tracker"
   },
   description:
@@ -77,9 +77,9 @@ export const metadata: Metadata = {
     telephone: false
   },
   icons: {
-    icon: "/icon.svg",
-    shortcut: "/icon.svg",
-    apple: "/icon.svg"
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png"
   },
   manifest: "/manifest.webmanifest"
 };
