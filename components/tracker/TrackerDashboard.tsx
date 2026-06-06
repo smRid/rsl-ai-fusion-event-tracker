@@ -9,15 +9,18 @@ import { TimelineGrid } from "./TimelineGrid";
 import { EventEditorModal } from "./EventEditorModal";
 import { ManualEventForm } from "./ManualEventForm";
 import { CalendarDetailsPanel } from "./CalendarDetailsPanel";
+import { ImportExportPanel } from "./ImportExportPanel";
 
 export function TrackerDashboard({
   tracker,
   onTrackerChange,
-  onReset
+  onReset,
+  showAdminTools = false
 }: {
   tracker: FusionTracker;
   onTrackerChange: (tracker: FusionTracker) => void;
   onReset: () => void;
+  showAdminTools?: boolean;
 }) {
   const [editingEvent, setEditingEvent] = useState<FusionEvent | null>(null);
   const [isAdding, setIsAdding] = useState(false);
@@ -88,9 +91,18 @@ export function TrackerDashboard({
           </div>
         </header>
 
-        <div className="grid items-stretch gap-4 xl:grid-cols-[minmax(0,2fr)_minmax(280px,0.9fr)]">
+        <div
+          className={`grid items-stretch gap-4 ${
+            showAdminTools
+              ? "xl:grid-cols-[minmax(0,1.8fr)_minmax(260px,0.75fr)_minmax(260px,0.75fr)]"
+              : "xl:grid-cols-[minmax(0,2fr)_minmax(280px,0.9fr)]"
+          }`}
+        >
           <CalendarDetailsPanel tracker={sortedTracker} onSave={updateTrackerDetails} />
           <ProgressPanel tracker={sortedTracker} />
+          {showAdminTools ? (
+            <ImportExportPanel tracker={sortedTracker} onImport={onTrackerChange} />
+          ) : null}
         </div>
 
         <section className="mt-5 space-y-5">

@@ -53,6 +53,7 @@ export function AdminTrackerClient() {
       tracker={tracker}
       onTrackerChange={handleTrackerChange}
       onReset={handleReset}
+      showAdminTools
     />
   );
 }
