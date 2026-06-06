@@ -2,7 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { PwaInstallPrompt } from "@/components/PwaInstallPrompt";
 import "./globals.css";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://rsl-ai-fusion-tracker.app";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://fusion-tracker.vercel.app";
+const previewImageUrl = `${siteUrl}/logo.png`;
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
@@ -54,9 +55,9 @@ export const metadata: Metadata = {
       "AI-powered Raid: Shadow Legends fusion calendar tracker for events, tournaments, fragments, and leaderboard rewards.",
     images: [
       {
-        url: "/Folan Silverhart.webp",
-        width: 1200,
-        height: 630,
+        url: previewImageUrl,
+        width: 612,
+        height: 408,
         alt: "RSL Fusion Tracker"
       }
     ]
@@ -66,7 +67,7 @@ export const metadata: Metadata = {
     title: "RSL Fusion Tracker",
     description:
       "Track Raid: Shadow Legends fusion calendars, fragments, events, tournaments, and leaderboard rewards.",
-    images: ["/Folan Silverhart.webp"]
+    images: [previewImageUrl]
   },
   appleWebApp: {
     capable: true,
