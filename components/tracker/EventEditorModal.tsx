@@ -291,10 +291,7 @@ function applyStatusSelectValue(event: FusionEvent, value: string): FusionEvent 
 }
 
 function getEarnedFragmentOptions(event: FusionEvent): number[] {
-  const mainFragments = Math.max(0, event.fragments ?? 0);
   const totalFragments = getEventFragmentTotal(event);
 
-  return [...new Set([mainFragments, totalFragments].filter((fragments) => fragments > 0))].sort(
-    (first, second) => first - second
-  );
+  return Array.from({ length: Math.floor(totalFragments / 5) }, (_, index) => (index + 1) * 5);
 }
