@@ -11,7 +11,13 @@ const statusCopy = {
   "needs-review": "Some AI-extracted events need manual review."
 };
 
-export function ProgressPanel({ tracker }: { tracker: FusionTracker }) {
+export function ProgressPanel({
+  tracker,
+  showStatusMessage = true
+}: {
+  tracker: FusionTracker;
+  showStatusMessage?: boolean;
+}) {
   const progress = calculateProgress(tracker);
   const statusClass =
     progress.status === "completed"
@@ -55,9 +61,11 @@ export function ProgressPanel({ tracker }: { tracker: FusionTracker }) {
         </div>
       </div>
 
-      <p className="mt-4 rounded border border-slate-700 bg-slate-950/60 p-3 text-sm text-slate-200">
-        {statusCopy[progress.status]}
-      </p>
+      {showStatusMessage ? (
+        <p className="mt-4 rounded border border-slate-700 bg-slate-950/60 p-3 text-sm text-slate-200">
+          {statusCopy[progress.status]}
+        </p>
+      ) : null}
 
       <div className="mt-5 grid grid-cols-2 gap-3 text-sm">
         <Stat label="Available" value={progress.totalFragments} tone="text-cyan-200" />

@@ -7,10 +7,12 @@ import { parseDateSafe } from "@/lib/date-utils";
 
 export function CalendarDetailsPanel({
   tracker,
-  onSave
+  onSave,
+  editable = true
 }: {
   tracker: FusionTracker;
   onSave: (patch: Partial<FusionTracker>) => void;
+  editable?: boolean;
 }) {
   const [fusionName, setFusionName] = useState(tracker.fusionName ?? "");
   const [startDate, setStartDate] = useState(tracker.dateRange.start ?? "");
@@ -70,53 +72,60 @@ export function CalendarDetailsPanel({
             Set the fusion range to unlock the timeline grid.
           </p>
         </div>
-        <button
-          type="button"
-          onClick={save}
-          className="inline-flex items-center gap-2 rounded bg-yellow-400 px-4 py-2 text-sm font-black text-slate-950 hover:bg-yellow-300"
-        >
-          <CalendarCheck className="h-4 w-4" />
-          Save & View Grid
-        </button>
+        {editable ? (
+          <button
+            type="button"
+            onClick={save}
+            className="inline-flex items-center gap-2 rounded bg-yellow-400 px-4 py-2 text-sm font-black text-slate-950 hover:bg-yellow-300"
+          >
+            <CalendarCheck className="h-4 w-4" />
+            Save & View Grid
+          </button>
+        ) : null}
       </div>
 
       <div className="mt-5 grid gap-4 sm:grid-cols-4">
-        <label className="sm:col-span-2">
+        <label className={editable ? "sm:col-span-2" : "sm:col-span-4"}>
           <span className="text-sm font-bold text-slate-200">Fusion Name</span>
           <input
             value={fusionName}
             onChange={(event) => setFusionName(event.target.value)}
+            readOnly={!editable}
             className="mt-1 w-full rounded border border-slate-700 bg-slate-950 px-3 py-2 text-sm outline-none focus:border-cyan-400"
           />
         </label>
-        <label>
-          <span className="text-sm font-bold text-slate-200">Start Date</span>
-          <input
-            type="date"
-            value={startDate}
-            onChange={(event) => setStartDate(event.target.value)}
-            className="mt-1 w-full rounded border border-slate-700 bg-slate-950 px-3 py-2 text-sm outline-none focus:border-cyan-400"
-          />
-        </label>
-        <label>
-          <span className="text-sm font-bold text-slate-200">End Date</span>
-          <input
-            type="date"
-            value={endDate}
-            onChange={(event) => setEndDate(event.target.value)}
-            className="mt-1 w-full rounded border border-slate-700 bg-slate-950 px-3 py-2 text-sm outline-none focus:border-cyan-400"
-          />
-        </label>
-        <label>
-          <span className="text-sm font-bold text-slate-200">Required Fragments</span>
-          <input
-            type="number"
-            min="1"
-            value={requiredFragments}
-            onChange={(event) => setRequiredFragments(event.target.value)}
-            className="mt-1 w-full rounded border border-slate-700 bg-slate-950 px-3 py-2 text-sm outline-none focus:border-cyan-400"
-          />
-        </label>
+        {editable ? (
+          <>
+            <label>
+              <span className="text-sm font-bold text-slate-200">Start Date</span>
+              <input
+                type="date"
+                value={startDate}
+                onChange={(event) => setStartDate(event.target.value)}
+                className="mt-1 w-full rounded border border-slate-700 bg-slate-950 px-3 py-2 text-sm outline-none focus:border-cyan-400"
+              />
+            </label>
+            <label>
+              <span className="text-sm font-bold text-slate-200">End Date</span>
+              <input
+                type="date"
+                value={endDate}
+                onChange={(event) => setEndDate(event.target.value)}
+                className="mt-1 w-full rounded border border-slate-700 bg-slate-950 px-3 py-2 text-sm outline-none focus:border-cyan-400"
+              />
+            </label>
+            <label>
+              <span className="text-sm font-bold text-slate-200">Required Fragments</span>
+              <input
+                type="number"
+                min="1"
+                value={requiredFragments}
+                onChange={(event) => setRequiredFragments(event.target.value)}
+                className="mt-1 w-full rounded border border-slate-700 bg-slate-950 px-3 py-2 text-sm outline-none focus:border-cyan-400"
+              />
+            </label>
+          </>
+        ) : null}
       </div>
 
       {error ? (

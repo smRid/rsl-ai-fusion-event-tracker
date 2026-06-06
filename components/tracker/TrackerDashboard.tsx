@@ -71,24 +71,26 @@ export function TrackerDashboard({
               {sortedTracker.dateRange.start ?? "Unknown start"} - {sortedTracker.dateRange.end ?? "Unknown end"}
             </p>
           </div>
-          <div className="flex flex-wrap gap-3">
-            <button
-              type="button"
-              onClick={() => setIsAdding(true)}
-              className="inline-flex items-center gap-2 rounded border border-cyan-400 bg-cyan-400 px-4 py-2 text-sm font-bold text-slate-950 hover:bg-cyan-300"
-            >
-              <Plus className="h-4 w-4" />
-              Add Event
-            </button>
-            <button
-              type="button"
-              onClick={onReset}
-              className="inline-flex items-center gap-2 rounded bg-rose-600 px-4 py-2 text-sm font-bold text-white hover:bg-rose-500"
-            >
-              <RotateCcw className="h-4 w-4" />
-              Reset
-            </button>
-          </div>
+          {showAdminTools ? (
+            <div className="flex flex-wrap gap-3">
+              <button
+                type="button"
+                onClick={() => setIsAdding(true)}
+                className="inline-flex items-center gap-2 rounded border border-cyan-400 bg-cyan-400 px-4 py-2 text-sm font-bold text-slate-950 hover:bg-cyan-300"
+              >
+                <Plus className="h-4 w-4" />
+                Add Event
+              </button>
+              <button
+                type="button"
+                onClick={onReset}
+                className="inline-flex items-center gap-2 rounded bg-rose-600 px-4 py-2 text-sm font-bold text-white hover:bg-rose-500"
+              >
+                <RotateCcw className="h-4 w-4" />
+                Reset
+              </button>
+            </div>
+          ) : null}
         </header>
 
         <div
@@ -98,8 +100,8 @@ export function TrackerDashboard({
               : "xl:grid-cols-[minmax(0,2fr)_minmax(280px,0.9fr)]"
           }`}
         >
-          <CalendarDetailsPanel tracker={sortedTracker} onSave={updateTrackerDetails} />
-          <ProgressPanel tracker={sortedTracker} />
+          <CalendarDetailsPanel tracker={sortedTracker} onSave={updateTrackerDetails} editable={showAdminTools} />
+          <ProgressPanel tracker={sortedTracker} showStatusMessage={showAdminTools} />
           {showAdminTools ? (
             <ImportExportPanel tracker={sortedTracker} onImport={onTrackerChange} />
           ) : null}
@@ -107,17 +109,19 @@ export function TrackerDashboard({
 
         <section className="mt-5 space-y-5">
           <TimelineGrid tracker={sortedTracker} onSelectEvent={setEditingEvent} />
-          <ManualEventForm
-            open={isAdding}
-            onCancel={() => setIsAdding(false)}
-            onAdd={(event) =>
-              handleAddEvent({
-                ...event,
-                id: createEventId(),
-                status: event.status ?? "pending"
-              })
-            }
-          />
+          {showAdminTools ? (
+            <ManualEventForm
+              open={isAdding}
+              onCancel={() => setIsAdding(false)}
+              onAdd={(event) =>
+                handleAddEvent({
+                  ...event,
+                  id: createEventId(),
+                  status: event.status ?? "pending"
+                })
+              }
+            />
+          ) : null}
         </section>
 
         <footer className="mt-8 border-t border-slate-800 pt-5 text-center text-xs text-slate-500">
